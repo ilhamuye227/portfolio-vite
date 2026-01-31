@@ -31,38 +31,6 @@ navLinkElements.forEach(link => {
 
 // end navbar
 
-// Fungsi untuk toggle modal image (perbesar/kecilkan)
-export function toggleImage(src, btn) {
-  const modal = document.getElementById("imageModal");
-  const modalImg = document.getElementById("modalImage");
-
-  if (modal.style.display === "block") {
-    // Jika modal sedang tampil, tutup modal dan ubah teks tombol
-    closeImage();
-    btn.textContent = "Perbesar Gambar";
-  } else {
-    // Jika modal belum tampil, tampilkan modal dengan gambar dan ubah teks tombol
-    modal.style.display = "block";
-    modalImg.src = src;
-    btn.textContent = "View Image";
-  }
-}
-
-// Fungsi untuk menutup modal dan reset tombol
-export function closeImage() {
-  document.getElementById("imageModal").style.display = 'none';
-  const toggleBtn = document.getElementById("toggle-btn");
-  if (toggleBtn) toggleBtn.textContent = "View Image"; // Reset tulisan tombol
-}
-
-// Menutup modal jika pengguna klik di luar gambar
-window.onclick = function (event) {
-  const modal = document.getElementById("imageModal");
-  if (event.target === modal) {
-    closeImage();
-  }
-};
-// end view
 
 
 
@@ -94,69 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // vidio rakit pc
-// Fungsi untuk toggle video (tampilkan video dan sembunyikan gambar)
-export function toggleVideo() {
-  var imageCard = document.getElementById('image-card');
-  var videoCard = document.getElementById('video-card');
-  var videoSource = document.getElementById('videoSource');
-  var video = document.getElementById('video01');
-  
-  // Menyembunyikan gambar, menampilkan video
-  imageCard.style.display = 'none';
-  videoCard.style.display = 'block';
-  
-  // Memasang sumber video dan memulai pemutaran video
-  videoSource.src = 'gambar/wel.mp4';  // Ganti dengan path video Anda
-  video.load();
-  video.play();
-
-  // Menampilkan modal
-  document.getElementById('customModal').style.display = 'block';
-}
-
-// Fungsi untuk menutup modal dan menghentikan video
-export function closeModal() {
-  var video = document.getElementById('video01');
-  video.pause();  // Hentikan video
-  video.currentTime = 0;  // Setel video ke awal
-
-  // Menampilkan gambar kembali, menyembunyikan video
-  document.getElementById('image-card').style.display = 'block';
-  document.getElementById('video-card').style.display = 'none';
-
-  // Menutup modal
-  document.getElementById('customModal').style.display = 'none'; 
-}
-
-// Fungsi untuk minimize video
-export function minimizeVideo() {
-  var video = document.getElementById('video01');
-  video.pause();  // Hentikan video
-  video.currentTime = 0;  // Setel video ke awal
-
-  // Menyembunyikan video dan menutup modal
-  document.getElementById('customModal').style.display = 'none';
-
-  // Menampilkan gambar kembali, menyembunyikan video
-  document.getElementById('image-card').style.display = 'block';
-  document.getElementById('video-card').style.display = 'none';
-}
-
-// Pastikan kode ini dijalankan setelah halaman dimuat sepenuhnya
-document.addEventListener('DOMContentLoaded', () => {
-  document.addEventListener('mousemove', (e) => {
-    const flame = document.createElement('div');
-    flame.className = 'rocket-flame';
-    flame.style.left = `${e.clientX}px`;
-    flame.style.top = `${e.clientY}px`;
-    document.body.appendChild(flame);
-
-    setTimeout(() => {
-      flame.remove();
-    }, 400);
-  });
-});
-
+// Fungsi untuk toggle video (tampilkan video dan sembunyikan ga
 // Expose functions on window so inline `onclick` attributes keep working
 window.toggleImage = toggleImage;
 window.closeImage = closeImage;
