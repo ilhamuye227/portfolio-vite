@@ -19,41 +19,7 @@ menuToggle.addEventListener('click', () => {
 
 // end navbar
 
-// Fungsi untuk toggle modal image (perbesar/kecilkan)
-function toggleImage(src, btn) {
-  const modal = document.getElementById("imageModal");
-  const modalImg = document.getElementById("modalImage");
-
-  if (modal.style.display === "block") {
-    // Jika modal sedang tampil, tutup modal dan ubah teks tombol
-    closeImage();
-    btn.textContent = "Perbesar Gambar";
-  } else {
-    // Jika modal belum tampil, tampilkan modal dengan gambar dan ubah teks tombol
-    modal.style.display = "block";
-    modalImg.src = src;
-    btn.textContent = "View Image";
-  }
-}
-
-// Fungsi untuk menutup modal dan reset tombol
-function closeImage() {
-  document.getElementById("imageModal").style.display = "none";
-  const toggleBtn = document.getElementById("toggle-btn");
-  if (toggleBtn) toggleBtn.textContent = "View Image"; // Reset tulisan tombol
-}
-
-// Menutup modal jika pengguna klik di luar gambar
-window.onclick = function (event) {
-  const modal = document.getElementById("imageModal");
-  if (event.target === modal) {
-    closeImage();
-  }
-};
-// end view
-
-
-
+// Fungsi untuk toggle modal image (perbesar/kecilkan
 
 
 /* start contact */
@@ -74,8 +40,3 @@ document.addEventListener("DOMContentLoaded", function () {
     window.open(waLink, "_blank"); // Buka link WA di tab baru
   });
 });
-
-
-
-
-/* end contact *
